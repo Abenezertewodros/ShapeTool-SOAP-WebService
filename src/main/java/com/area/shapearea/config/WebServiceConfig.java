@@ -1,0 +1,72 @@
+package com.area.shapearea.config;
+import java.util.List;
+import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.ws.config.annotation.EnableWs;
+import org.springframework.ws.config.annotation.WsConfigurer;
+import org.springframework.ws.server.EndpointInterceptor;
+import org.springframework.ws.soap.server.endpoint.interceptor.PayloadValidatingInterceptor;
+import org.springframework.ws.transport.http.MessageDispatcherServlet;
+import org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition;
+import org.springframework.xml.xsd.SimpleXsdSchema;
+import org.springframework.xml.xsd.XsdSchema;
+
+@EnableWs
+@Configuration
+public class WebServiceConfig implements WsConfigurer {
+
+    //  Register SOAP servlet
+    @Bean
+    public ServletRegistrationBean<MessageDispatcherServlet> messageDispatcherServlet(
+            ApplicationContext context) {
+
+        MessageDispatcherServlet servlet = new MessageDispatcherServlet();
+        servlet.setApplicationContext(context);
+        servlet.setTransformWsdlLocations(true);
+
+        return new ServletRegistrationBean<>(servlet, "/Shapearea/*");
+    }
+
+    //  WSDL Configuration
+    @Bean(name = "Shapearea")
+    public DefaultWsdl11Definition defaultWsdl11Definition() {
+
+        DefaultWsdl11Definition wsdl = new DefaultWsdl11Definition();
+        wsdl.setPortTypeName("ShapeareaPort");
+        wsdl.setLocationUri("/Shapearea");
+        wsdl.setTargetNamespace("http://example.com/shapetool");
+        wsdl.setSchema(calculatorSchema());
+
+        return wsdl;
+    }
+
+    //  Load XSD schema
+    @Bean
+    public XsdSchema calculatorSchema() {
+        return new SimpleXsdSchema(
+                new ClassPathResource("schemas/shapetool.xsd"));
+    }
+
+    //  Validation Interceptor (IMPORTANT)
+    @Bean
+    public PayloadValidatingInterceptor validatingInterceptor() {
+
+        PayloadValidatingInterceptor interceptor =
+                new PayloadValidatingInterceptor();
+
+        interceptor.setXsdSchema(calculatorSchema());
+        interceptor.setValidateRequest(true);
+        interceptor.setValidateResponse(true);
+
+        return interceptor;
+    }
+
+    //  Attach interceptor
+    @Override
+    public void addInterceptors(List<EndpointInterceptor> interceptors) {
+        interceptors.add(validatingInterceptor());
+    }
+}

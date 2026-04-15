@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://example.com/shapetool"
+           xmlns:tns="http://example.com/shapetool"
+           elementFormDefault="qualified">
+
+    <!-- Restriction: prevent negative values -->
+    <xs:simpleType name="PositiveDouble">
+        <xs:restriction base="xs:double">
+            <xs:minInclusive value="0.0"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- Circle -->
+    <xs:element name="CircleAreaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="radius" type="tns:PositiveDouble"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="CircleAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Square -->
+    <xs:element name="SquareAreaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="radius" type="tns:PositiveDouble"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="SquareAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Rectangle -->
+    <xs:element name="RectangleAreaRequest">
+        <xs:complexType>
+            <xs:sequence>
+              <xs:element name="length" type="tns:PositiveDouble"/>
+                <xs:element name="width" type="tns:PositiveDouble"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+    <xs:element name="RectangleAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Parallelogram -->
+    <xs:element name="ParallelogramAreaRequest">
+        <xs:complexType>
+            <xs:sequence>
+               <xs:element name="base" type="tns:PositiveDouble"/>
+               <xs:element name="height" type="tns:PositiveDouble"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:element>
+    <xs:element name="ParallelogramAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Triangle -->
+    <xs:element name="TriangleAreaRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="base" type="tns:PositiveDouble"/>
+                <xs:element name="height" type="tns:PositiveDouble"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TriangleAreaResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="area" type="xs:double"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+        <!--    <xs:element name="squareAreaRequest" type="tns:SquareAreaRequest"/>-->
+<!--    <xs:element name="squareAreaResponse" type="tns:SquareAreaResponse"/>-->
+<!--    <xs:element name="rectangleAreaRequest" type="tns:RectangleAreaRequest"/>-->
+<!--    <xs:element name="rectangleAreaResponse" type="tns:RectangleAreaResponse"/>-->
+<!--    <xs:element name="ParallelogramAreaRequest" type="tns:ParallelogramAreaRequest"/>-->
+<!--    <xs:element name="ParallelogramAreaResponse" type="tns:ParallelogramAreaResponse"/>-->
+<!--    <xs:element name="triangleAreaRequest" type="tns:TriangleAreaRequest"/>-->
+<!--    <xs:element name="triangleAreaResponse" type="tns:TriangleAreaResponse"/>-->
+</xs:schema>
