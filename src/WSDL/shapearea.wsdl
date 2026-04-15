@@ -1,0 +1,204 @@
+
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://example.com/shapetool" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://example.com/shapetool" targetNamespace="http://example.com/shapetool">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://example.com/shapetool">
+            <!--  Restriction: prevent negative values  -->
+            <xs:simpleType name="PositiveDouble">
+                <xs:restriction base="xs:double">
+                    <xs:minInclusive value="0.0"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <!--  Circle  -->
+            <xs:element name="CircleAreaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="radius" type="tns:PositiveDouble"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CircleAreaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="area" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!--  Square  -->
+            <xs:element name="SquareAreaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="radius" type="tns:PositiveDouble"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SquareAreaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="area" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!--  Rectangle  -->
+            <xs:element name="RectangleAreaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="length" type="tns:PositiveDouble"/>
+                        <xs:element name="width" type="tns:PositiveDouble"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="RectangleAreaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="area" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!--  Parallelogram  -->
+            <xs:element name="ParallelogramAreaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="base" type="tns:PositiveDouble"/>
+                        <xs:element name="height" type="tns:PositiveDouble"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ParallelogramAreaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="area" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!--  Triangle  -->
+            <xs:element name="TriangleAreaRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="base" type="tns:PositiveDouble"/>
+                        <xs:element name="height" type="tns:PositiveDouble"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TriangleAreaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="area" type="xs:double"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <!--     <xs:element name="squareAreaRequest" type="tns:SquareAreaRequest"/> -->
+            <!--     <xs:element name="squareAreaResponse" type="tns:SquareAreaResponse"/> -->
+            <!--     <xs:element name="rectangleAreaRequest" type="tns:RectangleAreaRequest"/> -->
+            <!--     <xs:element name="rectangleAreaResponse" type="tns:RectangleAreaResponse"/> -->
+            <!--     <xs:element name="ParallelogramAreaRequest" type="tns:ParallelogramAreaRequest"/> -->
+            <!--     <xs:element name="ParallelogramAreaResponse" type="tns:ParallelogramAreaResponse"/> -->
+            <!--     <xs:element name="triangleAreaRequest" type="tns:TriangleAreaRequest"/> -->
+            <!--     <xs:element name="triangleAreaResponse" type="tns:TriangleAreaResponse"/> -->
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="TriangleAreaResponse">
+        <wsdl:part element="tns:TriangleAreaResponse" name="TriangleAreaResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RectangleAreaRequest">
+        <wsdl:part element="tns:RectangleAreaRequest" name="RectangleAreaRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="TriangleAreaRequest">
+        <wsdl:part element="tns:TriangleAreaRequest" name="TriangleAreaRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ParallelogramAreaResponse">
+        <wsdl:part element="tns:ParallelogramAreaResponse" name="ParallelogramAreaResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SquareAreaRequest">
+        <wsdl:part element="tns:SquareAreaRequest" name="SquareAreaRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ParallelogramAreaRequest">
+        <wsdl:part element="tns:ParallelogramAreaRequest" name="ParallelogramAreaRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CircleAreaRequest">
+        <wsdl:part element="tns:CircleAreaRequest" name="CircleAreaRequest"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="SquareAreaResponse">
+        <wsdl:part element="tns:SquareAreaResponse" name="SquareAreaResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="RectangleAreaResponse">
+        <wsdl:part element="tns:RectangleAreaResponse" name="RectangleAreaResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CircleAreaResponse">
+        <wsdl:part element="tns:CircleAreaResponse" name="CircleAreaResponse"> </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="ShapeareaPort">
+        <wsdl:operation name="TriangleArea">
+            <wsdl:input message="tns:TriangleAreaRequest" name="TriangleAreaRequest"> </wsdl:input>
+            <wsdl:output message="tns:TriangleAreaResponse" name="TriangleAreaResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RectangleArea">
+            <wsdl:input message="tns:RectangleAreaRequest" name="RectangleAreaRequest"> </wsdl:input>
+            <wsdl:output message="tns:RectangleAreaResponse" name="RectangleAreaResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ParallelogramArea">
+            <wsdl:input message="tns:ParallelogramAreaRequest" name="ParallelogramAreaRequest"> </wsdl:input>
+            <wsdl:output message="tns:ParallelogramAreaResponse" name="ParallelogramAreaResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SquareArea">
+            <wsdl:input message="tns:SquareAreaRequest" name="SquareAreaRequest"> </wsdl:input>
+            <wsdl:output message="tns:SquareAreaResponse" name="SquareAreaResponse"> </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CircleArea">
+            <wsdl:input message="tns:CircleAreaRequest" name="CircleAreaRequest"> </wsdl:input>
+            <wsdl:output message="tns:CircleAreaResponse" name="CircleAreaResponse"> </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="ShapeareaPortSoap11" type="tns:ShapeareaPort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="TriangleArea">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="TriangleAreaRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="TriangleAreaResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="RectangleArea">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="RectangleAreaRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="RectangleAreaResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="ParallelogramArea">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="ParallelogramAreaRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="ParallelogramAreaResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="SquareArea">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="SquareAreaRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="SquareAreaResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="CircleArea">
+            <soap:operation soapAction=""/>
+            <wsdl:input name="CircleAreaRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CircleAreaResponse">
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ShapeareaPortService">
+        <wsdl:port binding="tns:ShapeareaPortSoap11" name="ShapeareaPortSoap11">
+            <soap:address location="http://localhost:8080/Shapearea"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
