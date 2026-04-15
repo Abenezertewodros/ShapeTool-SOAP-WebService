@@ -1,0 +1,7 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <shp:RectangleAreaResponse xmlns:shp="http://example.com/shapetool">
+            <shp:area>75.0</shp:area>
+        </shp:RectangleAreaResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

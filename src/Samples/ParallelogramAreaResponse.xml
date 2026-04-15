@@ -1,0 +1,7 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <shp:ParallelogramAreaResponse xmlns:shp="http://example.com/shapetool">
+            <shp:area>50.0</shp:area>
+        </shp:ParallelogramAreaResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:shp="http://example.com/shapetool">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <shp:ParallelogramAreaRequest>
+            <shp:base>10.0</shp:base>
+            <shp:height>5.0</shp:height>
+        </shp:ParallelogramAreaRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

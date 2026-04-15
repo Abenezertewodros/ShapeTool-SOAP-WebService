@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:shp="http://example.com/shapetool">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <shp:RectangleAreaRequest>
+            <shp:length>12.5</shp:length>
+            <shp:width>6.0</shp:width>
+        </shp:RectangleAreaRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

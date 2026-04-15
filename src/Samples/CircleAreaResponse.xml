@@ -1,0 +1,7 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <shp:CircleAreaResponse xmlns:shp="http://example.com/shapetool">
+            <shp:area>314.1592653589793</shp:area>
+        </shp:CircleAreaResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
